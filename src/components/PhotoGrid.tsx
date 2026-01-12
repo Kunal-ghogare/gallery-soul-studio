@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lightbox } from './Lightbox';
+import { ALBUMS } from '@/lib/googleDrive';
 
 import portfolio1 from '@/assets/portfolio-1.jpg';
 import portfolio2 from '@/assets/portfolio-2.jpg';
@@ -29,52 +30,54 @@ interface Photo {
   src: string;
 }
 
+// Sample photos using your album categories
+// Replace these with your actual Google Drive file URLs using makePhoto()
 const photos: Photo[] = [
   {
     id: '1',
-    title: 'Solitary Oak',
-    category: 'nature',
-    description: 'A lone tree standing in the morning mist',
-    location: 'Tuscany, Italy',
+    title: 'Bride Portrait',
+    category: 'weddings',
+    description: 'Beautiful bridal moment',
+    location: 'Studio',
     date: '2024',
     aspectRatio: 'square',
     src: 'portfolio-1',
   },
   {
     id: '2',
-    title: 'Urban Solitude',
-    category: 'street',
-    description: 'Walking through city rain',
-    location: 'Tokyo, Japan',
+    title: 'Runway Walk',
+    category: 'fashion-show',
+    description: 'Fashion week highlight',
+    location: 'Mumbai',
     date: '2024',
     aspectRatio: 'portrait',
     src: 'portfolio-2',
   },
   {
     id: '3',
-    title: 'Eternal Waves',
-    category: 'landscape',
-    description: 'Long exposure seascape at dawn',
-    location: 'Iceland',
+    title: 'Candid Moment',
+    category: 'candids',
+    description: 'Spontaneous capture',
+    location: 'Delhi',
     date: '2023',
     aspectRatio: 'landscape',
     src: 'portfolio-3',
   },
   {
     id: '4',
-    title: 'Spiral',
-    category: 'architecture',
-    description: 'Abstract architectural study',
-    location: 'Barcelona, Spain',
+    title: 'Stage Drama',
+    category: 'theatre-drama',
+    description: 'Theatrical performance',
+    location: 'Theatre',
     date: '2024',
     aspectRatio: 'square',
     src: 'portfolio-4',
   },
   {
     id: '5',
-    title: 'Memory',
-    category: 'portrait',
-    description: 'Hands that tell stories',
+    title: 'Portrait Study',
+    category: 'portraits',
+    description: 'Expressive portrait',
     location: 'Studio',
     date: '2024',
     aspectRatio: 'landscape',
@@ -82,17 +85,22 @@ const photos: Photo[] = [
   },
   {
     id: '6',
-    title: 'Dunes',
-    category: 'landscape',
-    description: 'Desert patterns at golden hour',
-    location: 'Sahara, Morocco',
+    title: 'Bharatanatyam',
+    category: 'classical-dance',
+    description: 'Classical dance performance',
+    location: 'Auditorium',
     date: '2023',
     aspectRatio: 'portrait',
     src: 'portfolio-6',
   },
 ];
 
-const categories = ['all', 'landscape', 'portrait', 'architecture', 'street', 'nature'];
+// Build categories from ALBUMS config
+const categories = ['all', ...ALBUMS.map(album => album.id)];
+const categoryLabels: Record<string, string> = {
+  all: 'All',
+  ...Object.fromEntries(ALBUMS.map(album => [album.id, album.title]))
+};
 
 interface PhotoGridProps {
   showFilters?: boolean;
@@ -135,7 +143,7 @@ export function PhotoGrid({ showFilters = true, limit }: PhotoGridProps) {
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
-              {category}
+              {categoryLabels[category] || category}
             </button>
           ))}
         </div>
