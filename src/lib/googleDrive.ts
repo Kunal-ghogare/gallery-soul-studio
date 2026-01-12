@@ -1,139 +1,169 @@
 /**
- * Google Drive Image Utility
- * 
- * HOW TO USE GOOGLE DRIVE IMAGES:
- * 
- * 1. Upload your images to Google Drive
- * 2. Right-click on an image → "Get link" → Set to "Anyone with the link"
- * 3. Copy the share link (it looks like: https://drive.google.com/file/d/FILE_ID/view?usp=sharing)
- * 4. Use this utility to convert it to a direct image URL
- * 
- * EXAMPLE:
- * const driveLink = "https://drive.google.com/file/d/1ABC123xyz/view?usp=sharing";
- * const imageUrl = getGoogleDriveImageUrl(driveLink);
- * // Result: "https://drive.google.com/uc?export=view&id=1ABC123xyz"
- * 
- * LIMITATIONS:
- * - Google Drive has bandwidth limits for free accounts
- * - For high-traffic sites, consider using cloud storage (AWS S3, Cloudinary, etc.)
- * - Large files may load slowly
+ * Google Drive Portfolio Utility
+ *
+ * IMPORTANT:
+ * - Folder links cannot be converted into direct image URLs without Drive API.
+ * - This file sets up your site sections (albums) using your folder links.
+ * - To show actual images, you must either:
+ *   A) Add file links manually per photo, OR
+ *   B) Use Google Drive API to list images inside each folder.
  */
 
-export function extractGoogleDriveFileId(shareUrl: string): string | null {
-  // Handle various Google Drive URL formats
-  const patterns = [
-    /\/file\/d\/([a-zA-Z0-9_-]+)/,           // Standard share URL
-    /id=([a-zA-Z0-9_-]+)/,                   // Query param format
-    /\/open\?id=([a-zA-Z0-9_-]+)/,           // Open URL format
-  ];
+// -----------------------------
+// Google Drive ID Helpers
+// -----------------------------
 
-  for (const pattern of patterns) {
-    const match = shareUrl.match(pattern);
-    if (match) {
-      return match[1];
-    }
+export function extractGoogleDriveFileId(url: string): string | null {
+  const patterns = [
+    /\/file\/d\/([a-zA-Z0-9_-]+)/, // file share URL
+    /id=([a-zA-Z0-9_-]+)/,         // id query param
+    /\/open\?id=([a-zA-Z0-9_-]+)/, // open format
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
   }
-  
   return null;
 }
 
-export function getGoogleDriveImageUrl(shareUrl: string): string {
-  const fileId = extractGoogleDriveFileId(shareUrl);
-  
-  if (!fileId) {
-    console.warn('Could not extract file ID from Google Drive URL:', shareUrl);
-    return shareUrl; // Return original if we can't parse it
+export function extractGoogleDriveFolderId(url: string): string | null {
+  const patterns = [
+    /\/folders\/([a-zA-Z0-9_-]+)/, // folder URL
+    /id=([a-zA-Z0-9_-]+)/,         // sometimes folder id is in query param
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return m[1];
   }
-  
-  // Direct embed URL - works for images
+  return null;
+}
+
+export function getGoogleDriveImageUrl(fileShareUrl: string): string {
+  const fileId = extractGoogleDriveFileId(fileShareUrl);
+  if (!fileId) {
+    console.warn("Could not extract FILE ID from Google Drive URL:", fileShareUrl);
+    return fileShareUrl;
+  }
   return `https://drive.google.com/uc?export=view&id=${fileId}`;
 }
 
-export function getGoogleDriveThumbnailUrl(shareUrl: string, size: number = 400): string {
-  const fileId = extractGoogleDriveFileId(shareUrl);
-  
-  if (!fileId) {
-    return shareUrl;
-  }
-  
-  // Thumbnail URL with size parameter
+export function getGoogleDriveThumbnailUrl(fileShareUrl: string, size: number = 800): string {
+  const fileId = extractGoogleDriveFileId(fileShareUrl);
+  if (!fileId) return fileShareUrl;
   return `https://drive.google.com/thumbnail?id=${fileId}&sz=w${size}`;
 }
 
-// Example photo data structure for your portfolio
+// -----------------------------
+// Album / Section Models
+// -----------------------------
+
+export interface Album {
+  id: string;            // internal id (slug)
+  title: string;         // display title
+  folderUrl: string;     // your shared folder link
+  folderId: string;      // extracted from folderUrl
+  coverPhoto?: string;   // OPTIONAL: a file share link for cover image
+  description?: string;
+}
+
+export const MAIN_DRIVE_FOLDER = {
+  title: "FINAL PHOTOS",
+  folderUrl: "https://drive.google.com/drive/folders/1My9pCM1VJq2efp2o-1UWqrsk8dQT4kQi?usp=sharing",
+  folderId: extractGoogleDriveFolderId(
+    "https://drive.google.com/drive/folders/1My9pCM1VJq2efp2o-1UWqrsk8dQT4kQi?usp=sharing"
+  )!,
+};
+
+// ✅ Your folders become website sections automatically
+export const ALBUMS: Album[] = [
+  {
+    id: "weddings",
+    title: "Weddings",
+    folderUrl: "https://drive.google.com/drive/folders/1JKUBwunRthgY4C1TrVXJ4OtBEFuBr3Mk?usp=sharing",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/1JKUBwunRthgY4C1TrVXJ4OtBEFuBr3Mk?usp=sharing"
+    )!,
+  },
+  {
+    id: "fashion-show",
+    title: "Fashion Show",
+    folderUrl: "https://drive.google.com/drive/folders/1XHRL9hjbo2FQhCtYbLiBhmvVDQLj3170?usp=sharing",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/1XHRL9hjbo2FQhCtYbLiBhmvVDQLj3170?usp=sharing"
+    )!,
+  },
+  {
+    id: "candids",
+    title: "Candids",
+    folderUrl: "https://drive.google.com/drive/folders/1yZ8mSWrWxQCfvMLjVeHMe2fL8Tn6VPe8?usp=drive_link",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/1yZ8mSWrWxQCfvMLjVeHMe2fL8Tn6VPe8?usp=drive_link"
+    )!,
+  },
+  {
+    id: "theatre-drama",
+    title: "Theatre Drama",
+    folderUrl: "https://drive.google.com/drive/folders/1oftaXUZj3VSZtDAPTigcCZ7c5nbgGeTa?usp=drive_link",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/1oftaXUZj3VSZtDAPTigcCZ7c5nbgGeTa?usp=drive_link"
+    )!,
+  },
+  {
+    id: "portraits",
+    title: "Portraits",
+    folderUrl: "https://drive.google.com/drive/folders/1jSQexFwkU66rElPzFoJ2QzZ21VBBNWIz?usp=drive_link",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/1jSQexFwkU66rElPzFoJ2QzZ21VBBNWIz?usp=drive_link"
+    )!,
+  },
+  {
+    id: "classical-dance",
+    title: "Classical Dance",
+    folderUrl: "https://drive.google.com/drive/folders/14n6x5O2jE06pqoL2AYDCorG1S5BxExNn?usp=drive_link",
+    folderId: extractGoogleDriveFolderId(
+      "https://drive.google.com/drive/folders/14n6x5O2jE06pqoL2AYDCorG1S5BxExNn?usp=drive_link"
+    )!,
+  },
+];
+
+// -----------------------------
+// Photo Model
+// -----------------------------
+
 export interface Photo {
   id: string;
   title: string;
-  category: 'landscape' | 'portrait' | 'architecture' | 'street' | 'nature' | 'abstract';
+  albumId: Album["id"];
+  driveFileUrl: string; // must be FILE url, not folder
+  src: string;
+  thumbSrc: string;
   description?: string;
   location?: string;
   date?: string;
-  camera?: string;
-  // You can use either a local import or Google Drive URL
-  src: string;
-  aspectRatio?: 'square' | 'portrait' | 'landscape';
 }
 
-// Sample photos - replace with your Google Drive links
-export const samplePhotos: Photo[] = [
-  {
-    id: '1',
-    title: 'Solitary Oak',
-    category: 'nature',
-    description: 'A lone tree standing in the morning mist',
-    location: 'Tuscany, Italy',
-    date: '2024',
-    aspectRatio: 'square',
-    src: 'portfolio-1', // Will be replaced with actual import
-  },
-  {
-    id: '2',
-    title: 'Urban Solitude',
-    category: 'street',
-    description: 'Walking through city rain',
-    location: 'Tokyo, Japan',
-    date: '2024',
-    aspectRatio: 'portrait',
-    src: 'portfolio-2',
-  },
-  {
-    id: '3',
-    title: 'Eternal Waves',
-    category: 'landscape',
-    description: 'Long exposure seascape at dawn',
-    location: 'Iceland',
-    date: '2023',
-    aspectRatio: 'landscape',
-    src: 'portfolio-3',
-  },
-  {
-    id: '4',
-    title: 'Spiral',
-    category: 'architecture',
-    description: 'Abstract architectural study',
-    location: 'Barcelona, Spain',
-    date: '2024',
-    aspectRatio: 'square',
-    src: 'portfolio-4',
-  },
-  {
-    id: '5',
-    title: 'Memory',
-    category: 'portrait',
-    description: 'Hands that tell stories',
-    location: 'Studio',
-    date: '2024',
-    aspectRatio: 'landscape',
-    src: 'portfolio-5',
-  },
-  {
-    id: '6',
-    title: 'Dunes',
-    category: 'landscape',
-    description: 'Desert patterns at golden hour',
-    location: 'Sahara, Morocco',
-    date: '2023',
-    aspectRatio: 'portrait',
-    src: 'portfolio-6',
-  },
-];
+export function makePhoto(p: Omit<Photo, "src" | "thumbSrc">): Photo {
+  return {
+    ...p,
+    src: getGoogleDriveImageUrl(p.driveFileUrl),
+    thumbSrc: getGoogleDriveThumbnailUrl(p.driveFileUrl, 800),
+  };
+}
+
+/**
+ * USAGE EXAMPLE:
+ * 
+ * To add photos, share individual files from Google Drive and use makePhoto():
+ * 
+ * const photos = [
+ *   makePhoto({
+ *     id: "w1",
+ *     title: "Bride Entry",
+ *     albumId: "weddings",
+ *     driveFileUrl: "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing",
+ *     description: "Beautiful entrance moment",
+ *     location: "Mumbai",
+ *     date: "2024"
+ *   })
+ * ];
+ */
