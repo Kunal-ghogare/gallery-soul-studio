@@ -71,14 +71,37 @@ def get_parent_folder_id():
     return None
 
 
+def extract_order_prefix(name: str) -> tuple:
+    """Extract numeric prefix and clean name from a string.
+
+    Examples:
+        '01-Weddings' -> (1, 'Weddings')
+        '02 - Portraits' -> (2, 'Portraits')
+        '10_Classical Dance' -> (10, 'Classical Dance')
+        'Candids' -> (float('inf'), 'Candids')  # No prefix = sort last
+
+    Returns:
+        (order_number, clean_name) - order_number is float('inf') if no prefix
+    """
+    # Match patterns like: "01-Name", "01 - Name", "01_Name", "01 Name"
+    match = re.match(r'^(\d+)[\s\-_]+(.+)$', name)
+    if match:
+        order = int(match.group(1))
+        clean_name = match.group(2).strip()
+        return (order, clean_name)
+    return (float('inf'), name)
+
+
 def slugify(text: str) -> str:
     """Convert folder name to URL-friendly slug"""
+    # First strip any order prefix
+    _, clean_text = extract_order_prefix(text)
     # Convert to lowercase
-    text = text.lower()
+    clean_text = clean_text.lower()
     # Replace spaces and special chars with hyphens
-    text = re.sub(r'[^\w\s-]', '', text)
-    text = re.sub(r'[-\s]+', '-', text)
-    return text.strip('-')
+    clean_text = re.sub(r'[^\w\s-]', '', clean_text)
+    clean_text = re.sub(r'[-\s]+', '-', clean_text)
+    return clean_text.strip('-')
 
 
 def get_image_url(file_id: str, thumbnail: bool = False, size: int = 800) -> str:
@@ -205,14 +228,24 @@ def get_subfolders(service, parent_folder_id: str, retries: int = 3) -> list:
                 print(f"  Error fetching subfolders after {retries} attempts: {e}")
                 return []
 
-    # Convert to album format
+    # Convert to album format with ordering support
     albums = []
     for folder in folders:
+        original_name = folder['name']
+        order, clean_title = extract_order_prefix(original_name)
         albums.append({
-            "id": slugify(folder['name']),
-            "title": folder['name'],
+            "id": slugify(original_name),
+            "title": clean_title,  # Display name without prefix
             "folderId": folder['id'],
+            "_order": order,  # Used for sorting, removed later
         })
+
+    # Sort by order prefix (numbered first, then non-numbered)
+    albums.sort(key=lambda x: x["_order"])
+
+    # Remove the _order field (not needed in output)
+    for album in albums:
+        del album["_order"]
 
     return albums
 
@@ -249,15 +282,23 @@ def get_images_from_folder(service, folder_id: str, retries: int = 3) -> list:
         # Check if this is a cover image (filename contains 'cover')
         is_cover = 'cover' in filename.lower()
 
+        # Extract order prefix from filename
+        order, _ = extract_order_prefix(filename)
+
         images.append({
             "id": file_id,
             "src": get_image_url(file_id),
             "thumbSrc": get_image_url(file_id, thumbnail=True, size=800),
             "isCover": is_cover,
+            "_order": order,
         })
 
-    # Sort: cover images first, then by id
-    images.sort(key=lambda x: (not x["isCover"], x["id"]))
+    # Sort: cover images first, then by order prefix, then by id
+    images.sort(key=lambda x: (not x["isCover"], x["_order"], x["id"]))
+
+    # Remove the _order field (not needed in output)
+    for img in images:
+        del img["_order"]
 
     return images
 
