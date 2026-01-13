@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for GitHub Pages (repo name)
-  base: "/gallery-soul-studio/",
+  // Base path - use root when using custom domain
+  base: "/",
   server: {
     host: "::",
     port: 8080,
