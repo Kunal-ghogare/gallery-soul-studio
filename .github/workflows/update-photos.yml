@@ -4,14 +4,6 @@ on:
   # Run manually from GitHub Actions tab
   workflow_dispatch:
 
-  # Run on schedule (every day at midnight UTC)
-  schedule:
-    - cron: '0 0 * * *'
-
-  # Run when pushing to main (optional - comment out if not needed)
-  # push:
-  #   branches: [main]
-
 jobs:
   update-photos:
     runs-on: ubuntu-latest
