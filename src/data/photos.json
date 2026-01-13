@@ -26,7 +26,7 @@
       "title": "Portraits",
       "folderId": "1jSQexFwkU66rElPzFoJ2QzZ21VBBNWIz",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1h2UTGW9UR4GBT9nckj8HJwr4Fsg8yhhW=w800",
-      "photoCount": 9
+      "photoCount": 10
     },
     {
       "id": "theatre-drama",
@@ -437,6 +437,13 @@
       "albumId": "portraits"
     },
     {
+      "id": "1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH",
+      "src": "https://lh3.googleusercontent.com/d/1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
       "id": "1mD09pAlAk66Ri4nyXIqeJDLYL0IpNcj2",
       "src": "https://lh3.googleusercontent.com/d/1mD09pAlAk66Ri4nyXIqeJDLYL0IpNcj2=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1mD09pAlAk66Ri4nyXIqeJDLYL0IpNcj2=w800",
@@ -766,6 +773,6 @@
       "albumId": "weddings"
     }
   ],
-  "lastUpdated": "2026-01-13T05:51:33.530791",
-  "totalPhotos": 103
+  "lastUpdated": "2026-01-13T05:53:35.639647",
+  "totalPhotos": 104
 }
