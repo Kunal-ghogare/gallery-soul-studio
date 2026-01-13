@@ -4,26 +4,26 @@ import { ChevronDown } from 'lucide-react';
 
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
-import hero3 from '@/assets/hero-3.jpg';
+import hero3 from '@/assets/hero-3.jpeg';
 
 const slides = [
   {
     id: 1,
     image: hero1,
-    title: 'Capturing Light',
-    subtitle: 'Fine Art Photography',
+    title: 'Rhythm in Motion',
+    subtitle: 'Classical Dance',
   },
   {
     id: 2,
     image: hero2,
-    title: 'Human Form',
-    subtitle: 'Portrait Series',
+    title: 'Stories Unfold',
+    subtitle: 'Theatre & Drama',
   },
   {
     id: 3,
     image: hero3,
-    title: 'Urban Geometry',
-    subtitle: 'Architecture Collection',
+    title: 'Light & Shadow',
+    subtitle: 'Fine Art Photography',
   },
 ];
 
@@ -65,7 +65,7 @@ export function HeroSlider() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-gallery-text">
+      <div className="relative z-10 h-full flex flex-col items-start justify-center text-gallery-text container mx-auto px-6 lg:px-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -73,7 +73,7 @@ export function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-            className="text-center px-6"
+            className="text-left"
           >
             <motion.p
               initial={{ opacity: 0 }}
@@ -95,7 +95,7 @@ export function HeroSlider() {
         </AnimatePresence>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-32 flex gap-3">
+        <div className="absolute bottom-32 left-6 lg:left-12 flex gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -119,7 +119,7 @@ export function HeroSlider() {
             opacity: { delay: 1.5 },
             y: { repeat: Infinity, duration: 2, ease: 'easeInOut' },
           }}
-          className="absolute bottom-12 text-gallery-text/70 hover:text-gallery-text transition-colors"
+          className="absolute bottom-12 left-6 lg:left-12 text-gallery-text/70 hover:text-gallery-text transition-colors"
           aria-label="Scroll to content"
         >
           <ChevronDown size={32} strokeWidth={1} />

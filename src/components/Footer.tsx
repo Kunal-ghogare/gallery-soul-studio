@@ -9,7 +9,7 @@ export function Footer() {
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <Link to="/" className="font-display text-2xl text-foreground">
-              Studio
+              Kunal Ghogare
             </Link>
             <p className="text-sm text-muted-foreground mt-2">
               © {new Date().getFullYear()} All rights reserved.
@@ -40,17 +40,17 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="flex gap-4">
-            <a 
-              href="https://instagram.com" 
-              target="_blank" 
+            <a
+              href="https://instagram.com/kunal_ghogare"
+              target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Instagram"
             >
               <Instagram size={20} />
             </a>
-            <a 
-              href="mailto:hello@studio.com"
+            <a
+              href="mailto:kungho09@gmail.com"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >

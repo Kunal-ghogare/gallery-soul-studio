@@ -1,0 +1,51 @@
+name: Update Photos from Google Drive
+
+on:
+  # Run manually from GitHub Actions tab
+  workflow_dispatch:
+
+  # Run on schedule (every day at midnight UTC)
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Run when pushing to main (optional - comment out if not needed)
+  # push:
+  #   branches: [main]
+
+jobs:
+  update-photos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+      - name: Fetch photos from Google Drive
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_DRIVE_PARENT_FOLDER: ${{ secrets.GOOGLE_DRIVE_PARENT_FOLDER }}
+        run: |
+          python scripts/fetch-photos.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet src/data/photos.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/data/photos.json
+          git commit -m "Update photos from Google Drive [skip ci]"
+          git push

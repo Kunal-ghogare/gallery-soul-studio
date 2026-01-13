@@ -49,7 +49,7 @@ export function Navigation() {
                 isScrolled || !isHome ? 'text-foreground' : 'text-gallery-text'
               }`}
             >
-              Studio
+              Kunal Ghogare
             </Link>
 
             {/* Desktop Navigation */}

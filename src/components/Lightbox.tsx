@@ -1,16 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, MapPin, Calendar, Camera } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ALBUMS } from '@/lib/googleDrive';
 
 interface Photo {
   id: string;
-  title: string;
-  category: string;
-  description?: string;
-  location?: string;
-  date?: string;
-  camera?: string;
+  albumId: string;
   src: string;
+  thumbSrc: string;
 }
 
 interface LightboxProps {
@@ -21,7 +18,16 @@ interface LightboxProps {
   hasPrev: boolean;
 }
 
+// Get album title from album id
+const getAlbumTitle = (albumId: string) => {
+  const album = ALBUMS.find(a => a.id === albumId);
+  return album?.title || albumId.replace('-', ' ');
+};
+
 export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: LightboxProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -31,12 +37,23 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
 
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
-    
+
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose, onNavigate, hasNext, hasPrev]);
+
+  // Reset loading state when photo changes
+  useEffect(() => {
+    setIsLoading(true);
+    setHasError(false);
+  }, [photo.id]);
+
+  const albumTitle = getAlbumTitle(photo.albumId);
+
+  // Use thumbnail URL with larger size for lightbox (max ~2000px works reliably)
+  const imageUrl = photo.thumbSrc.replace('sz=w800', 'sz=w2000');
 
   return (
     <AnimatePresence>
@@ -45,6 +62,7 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center"
+        onContextMenu={(e) => e.preventDefault()}
       >
         {/* Backdrop */}
         <motion.div
@@ -58,7 +76,7 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 p-2 text-gallery-text/70 hover:text-gallery-text transition-colors"
+          className="absolute top-6 right-6 z-20 p-2 text-gallery-text/70 hover:text-gallery-text transition-colors"
           aria-label="Close lightbox"
         >
           <X size={28} strokeWidth={1.5} />
@@ -68,7 +86,7 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
         {hasPrev && (
           <button
             onClick={() => onNavigate('prev')}
-            className="absolute left-4 md:left-8 z-10 p-3 text-gallery-text/70 hover:text-gallery-text transition-colors"
+            className="absolute left-4 md:left-8 z-20 p-3 text-gallery-text/70 hover:text-gallery-text transition-colors"
             aria-label="Previous photo"
           >
             <ChevronLeft size={40} strokeWidth={1} />
@@ -77,7 +95,7 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
         {hasNext && (
           <button
             onClick={() => onNavigate('next')}
-            className="absolute right-4 md:right-8 z-10 p-3 text-gallery-text/70 hover:text-gallery-text transition-colors"
+            className="absolute right-4 md:right-8 z-20 p-3 text-gallery-text/70 hover:text-gallery-text transition-colors"
             aria-label="Next photo"
           >
             <ChevronRight size={40} strokeWidth={1} />
@@ -91,53 +109,36 @@ export function Lightbox({ photo, onClose, onNavigate, hasNext, hasPrev }: Light
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.3 }}
-          className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-16"
+          className="relative z-5 flex flex-col items-center max-w-5xl mx-auto px-20"
         >
-          <div className="flex flex-col lg:flex-row gap-8 items-center">
-            {/* Image */}
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src={photo.src}
-                alt={photo.title}
-                className="max-h-[70vh] lg:max-h-[80vh] w-auto object-contain"
-              />
-            </div>
+          {/* Album label at top */}
+          <p className="text-sm tracking-widest uppercase text-gallery-text/60 mb-4">
+            {albumTitle}
+          </p>
 
-            {/* Info Panel */}
-            <div className="lg:w-72 text-gallery-text text-center lg:text-left">
-              <h2 className="font-display text-3xl mb-2">{photo.title}</h2>
-              <p className="text-sm tracking-widest uppercase text-gallery-text/60 mb-6">
-                {photo.category}
-              </p>
-              
-              {photo.description && (
-                <p className="text-gallery-text/80 mb-6 leading-relaxed">
-                  {photo.description}
-                </p>
-              )}
+          {/* Loading indicator */}
+          {isLoading && (
+            <div className="text-gallery-text/60 text-sm">Loading...</div>
+          )}
 
-              <div className="space-y-3 text-sm text-gallery-text/60">
-                {photo.location && (
-                  <div className="flex items-center gap-3 justify-center lg:justify-start">
-                    <MapPin size={16} />
-                    <span>{photo.location}</span>
-                  </div>
-                )}
-                {photo.date && (
-                  <div className="flex items-center gap-3 justify-center lg:justify-start">
-                    <Calendar size={16} />
-                    <span>{photo.date}</span>
-                  </div>
-                )}
-                {photo.camera && (
-                  <div className="flex items-center gap-3 justify-center lg:justify-start">
-                    <Camera size={16} />
-                    <span>{photo.camera}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+          {/* Error message */}
+          {hasError && (
+            <div className="text-red-400 text-sm">Failed to load image</div>
+          )}
+
+          {/* Image */}
+          <img
+            src={imageUrl}
+            alt={albumTitle}
+            className={`max-h-[80vh] max-w-full object-contain select-none ${isLoading ? 'hidden' : ''}`}
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            onLoad={() => setIsLoading(false)}
+            onError={() => {
+              setIsLoading(false);
+              setHasError(true);
+            }}
+          />
         </motion.div>
       </motion.div>
     </AnimatePresence>

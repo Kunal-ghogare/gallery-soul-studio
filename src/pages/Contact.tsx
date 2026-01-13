@@ -57,10 +57,10 @@ const Contact = () => {
                       Email
                     </p>
                     <a 
-                      href="mailto:hello@studio.com" 
+                      href="mailto:kungho09@gmail.com" 
                       className="text-foreground hover:text-primary transition-colors"
                     >
-                      hello@studio.com
+                      kungho09@gmail.com
                     </a>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ const Contact = () => {
                       Location
                     </p>
                     <p className="text-foreground">
-                      New York City, NY
+                      Orlando, Florida, USA
                     </p>
                   </div>
                 </div>
@@ -88,12 +88,12 @@ const Contact = () => {
                       Social
                     </p>
                     <a 
-                      href="https://instagram.com" 
+                      href="https://instagram.com/kunal_ghogare" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground hover:text-primary transition-colors"
                     >
-                      @studio.photography
+                      @kunal_ghogare
                     </a>
                   </div>
                 </div>

@@ -1,24 +1,44 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        setError(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
@@ -94,8 +114,15 @@ export function ContactForm() {
         />
       </div>
 
-      <Button 
-        type="submit" 
+      {error && (
+        <div className="flex items-center gap-2 text-destructive">
+          <AlertCircle size={16} />
+          <span className="text-sm">{error}</span>
+        </div>
+      )}
+
+      <Button
+        type="submit"
         disabled={isLoading}
         className="mt-8 px-8 py-6 text-sm tracking-widest uppercase"
       >

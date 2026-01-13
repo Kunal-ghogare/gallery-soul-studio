@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
 import { HeroSlider } from '@/components/HeroSlider';
-import { PhotoGrid } from '@/components/PhotoGrid';
+import { AlbumGrid } from '@/components/AlbumGrid';
 import { Footer } from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
+
+import photographer from '@/assets/about.jpeg';
 
 const Index = () => {
   return (
@@ -38,7 +40,7 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <PhotoGrid showFilters={false} limit={6} />
+            <AlbumGrid limit={6} />
           </motion.div>
 
           <motion.div
@@ -60,7 +62,7 @@ const Index = () => {
       </section>
 
       {/* About Teaser */}
-      <section className="py-24 md:py-32 bg-secondary">
+      <section className="py-24 md:py-16 bg-secondary">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -69,23 +71,18 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                The Artist
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-                Capturing Moments, Creating Art
+              <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
+                Hi there!
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                With over a decade of experience in fine art photography, I specialize in 
-                capturing the extraordinary within the ordinary. My work explores the 
-                interplay of light, shadow, and human emotion across landscapes, 
-                architecture, and intimate portraits.
+                Most of my favorite shots happen when people forget I'm there.
+                That's the goal - disappear long enough to catch something real.
               </p>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-3 text-sm tracking-widest uppercase text-foreground hover:text-primary transition-colors group"
               >
-                Learn More
+                More About Me
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -95,16 +92,13 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="flex justify-center lg:justify-end"
             >
-              <div className="aspect-[4/5] bg-muted overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop"
-                  alt="Photographer portrait"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 border border-primary/20" />
+              <img
+                src={photographer}
+                alt="Photographer"
+                className="w-full max-w-lg grayscale hover:grayscale-0 transition-all duration-700"
+              />
             </motion.div>
           </div>
         </div>
