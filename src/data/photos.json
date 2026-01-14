@@ -5,7 +5,7 @@
       "title": "Weddings",
       "folderId": "1JKUBwunRthgY4C1TrVXJ4OtBEFuBr3Mk",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1WjhYrw2Ge6UpRKBSfy9nFJNNFi5hDSf_=w800",
-      "photoCount": 28
+      "photoCount": 24
     },
     {
       "id": "classical-dance",
@@ -15,11 +15,11 @@
       "photoCount": 29
     },
     {
-      "id": "candids",
-      "title": "Candids",
+      "id": "event-candids",
+      "title": "Event Candids",
       "folderId": "1yZ8mSWrWxQCfvMLjVeHMe2fL8Tn6VPe8",
       "coverPhoto": "https://lh3.googleusercontent.com/d/18roIMl0LhRXUCZcHHefbCSuvBfyZrmzb=w800",
-      "photoCount": 8
+      "photoCount": 6
     },
     {
       "id": "fashion-show",
@@ -33,14 +33,14 @@
       "title": "Portraits",
       "folderId": "1jSQexFwkU66rElPzFoJ2QzZ21VBBNWIz",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1h2UTGW9UR4GBT9nckj8HJwr4Fsg8yhhW=w800",
-      "photoCount": 10
+      "photoCount": 15
     },
     {
       "id": "theatre-drama",
       "title": "Theatre Drama ",
       "folderId": "1oftaXUZj3VSZtDAPTigcCZ7c5nbgGeTa",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1-BtF-v7Gkxk4hh-K2vLlQesq5uoC3dA8=w800",
-      "photoCount": 17
+      "photoCount": 14
     }
   ],
   "photos": [
@@ -62,20 +62,6 @@
       "id": "1i-y4S8MEPq8Vb1iObpVu4CKMv5dBMPPh",
       "src": "https://lh3.googleusercontent.com/d/1i-y4S8MEPq8Vb1iObpVu4CKMv5dBMPPh=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1i-y4S8MEPq8Vb1iObpVu4CKMv5dBMPPh=w800",
-      "isCover": false,
-      "albumId": "weddings"
-    },
-    {
-      "id": "17yd07wXjAJYkJDBqqz_1JbThAW2uMMhi",
-      "src": "https://lh3.googleusercontent.com/d/17yd07wXjAJYkJDBqqz_1JbThAW2uMMhi=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/17yd07wXjAJYkJDBqqz_1JbThAW2uMMhi=w800",
-      "isCover": false,
-      "albumId": "weddings"
-    },
-    {
-      "id": "1RA6I4AKUoVmbLaScs5QxrlXpCA8XS1Z2",
-      "src": "https://lh3.googleusercontent.com/d/1RA6I4AKUoVmbLaScs5QxrlXpCA8XS1Z2=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1RA6I4AKUoVmbLaScs5QxrlXpCA8XS1Z2=w800",
       "isCover": false,
       "albumId": "weddings"
     },
@@ -115,13 +101,6 @@
       "albumId": "weddings"
     },
     {
-      "id": "19oHguFy22iNxIlxrzffNXSXHpc5ri1nf",
-      "src": "https://lh3.googleusercontent.com/d/19oHguFy22iNxIlxrzffNXSXHpc5ri1nf=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/19oHguFy22iNxIlxrzffNXSXHpc5ri1nf=w800",
-      "isCover": false,
-      "albumId": "weddings"
-    },
-    {
       "id": "1JqQqPVaTgRLxmOIieKaqHTME2tMGV99E",
       "src": "https://lh3.googleusercontent.com/d/1JqQqPVaTgRLxmOIieKaqHTME2tMGV99E=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1JqQqPVaTgRLxmOIieKaqHTME2tMGV99E=w800",
@@ -146,13 +125,6 @@
       "id": "1rneG52mh1ih4sjNddyILTB2E_5OGV_IN",
       "src": "https://lh3.googleusercontent.com/d/1rneG52mh1ih4sjNddyILTB2E_5OGV_IN=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1rneG52mh1ih4sjNddyILTB2E_5OGV_IN=w800",
-      "isCover": false,
-      "albumId": "weddings"
-    },
-    {
-      "id": "1rsOgGwGMKR9TnWNXjyiy4WleSrTaxCcd",
-      "src": "https://lh3.googleusercontent.com/d/1rsOgGwGMKR9TnWNXjyiy4WleSrTaxCcd=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1rsOgGwGMKR9TnWNXjyiy4WleSrTaxCcd=w800",
       "isCover": false,
       "albumId": "weddings"
     },
@@ -448,56 +420,42 @@
       "src": "https://lh3.googleusercontent.com/d/18roIMl0LhRXUCZcHHefbCSuvBfyZrmzb=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/18roIMl0LhRXUCZcHHefbCSuvBfyZrmzb=w800",
       "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "1-XGXHQ_spLX3nVaLZjeL0pJD7IoaTx14",
       "src": "https://lh3.googleusercontent.com/d/1-XGXHQ_spLX3nVaLZjeL0pJD7IoaTx14=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1-XGXHQ_spLX3nVaLZjeL0pJD7IoaTx14=w800",
       "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "12xzGEPm8xdU0_cTGCEJJXgmFRLk4HvDx",
       "src": "https://lh3.googleusercontent.com/d/12xzGEPm8xdU0_cTGCEJJXgmFRLk4HvDx=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/12xzGEPm8xdU0_cTGCEJJXgmFRLk4HvDx=w800",
       "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "13COROlTBftW8lyt6-Jh-Js6PFfi6VLRz",
       "src": "https://lh3.googleusercontent.com/d/13COROlTBftW8lyt6-Jh-Js6PFfi6VLRz=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/13COROlTBftW8lyt6-Jh-Js6PFfi6VLRz=w800",
       "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "1VxNlKXvq1nH_emClIHZeLKZCogRQBGIj",
       "src": "https://lh3.googleusercontent.com/d/1VxNlKXvq1nH_emClIHZeLKZCogRQBGIj=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1VxNlKXvq1nH_emClIHZeLKZCogRQBGIj=w800",
       "isCover": false,
-      "albumId": "candids"
-    },
-    {
-      "id": "1ef_EiUvPlwHQLKmziCogh74sfjQqfE6y",
-      "src": "https://lh3.googleusercontent.com/d/1ef_EiUvPlwHQLKmziCogh74sfjQqfE6y=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1ef_EiUvPlwHQLKmziCogh74sfjQqfE6y=w800",
-      "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "1ffCB13Nl-I7iCjd-x37oiJiVFAFhNurY",
       "src": "https://lh3.googleusercontent.com/d/1ffCB13Nl-I7iCjd-x37oiJiVFAFhNurY=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1ffCB13Nl-I7iCjd-x37oiJiVFAFhNurY=w800",
       "isCover": false,
-      "albumId": "candids"
-    },
-    {
-      "id": "1gnWFpPMz1W3JrkNZT9oxbDmxjPVAfMpK",
-      "src": "https://lh3.googleusercontent.com/d/1gnWFpPMz1W3JrkNZT9oxbDmxjPVAfMpK=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1gnWFpPMz1W3JrkNZT9oxbDmxjPVAfMpK=w800",
-      "isCover": false,
-      "albumId": "candids"
+      "albumId": "event-candids"
     },
     {
       "id": "1vOFGWYx7xKLNyTNuQ-ql0owcVCOfuCDm",
@@ -591,13 +549,6 @@
       "albumId": "portraits"
     },
     {
-      "id": "1-lar93y3cwp6a8RDXQEfCjL1CmGftFJo",
-      "src": "https://lh3.googleusercontent.com/d/1-lar93y3cwp6a8RDXQEfCjL1CmGftFJo=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1-lar93y3cwp6a8RDXQEfCjL1CmGftFJo=w800",
-      "isCover": false,
-      "albumId": "portraits"
-    },
-    {
       "id": "15io1KLn6k_2tl6nVp8dnBSOuhE52Bs56",
       "src": "https://lh3.googleusercontent.com/d/15io1KLn6k_2tl6nVp8dnBSOuhE52Bs56=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/15io1KLn6k_2tl6nVp8dnBSOuhE52Bs56=w800",
@@ -612,9 +563,30 @@
       "albumId": "portraits"
     },
     {
+      "id": "1EBdCISzyZ6xCQS17om9FP3L2mUNlhNgH",
+      "src": "https://lh3.googleusercontent.com/d/1EBdCISzyZ6xCQS17om9FP3L2mUNlhNgH=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1EBdCISzyZ6xCQS17om9FP3L2mUNlhNgH=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
       "id": "1JrfjjrQXnS-zwDOro-pj8f4_uGTM-DIO",
       "src": "https://lh3.googleusercontent.com/d/1JrfjjrQXnS-zwDOro-pj8f4_uGTM-DIO=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1JrfjjrQXnS-zwDOro-pj8f4_uGTM-DIO=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
+      "id": "1KPrkRyNDInBegVBWQz6f8wlkhGiWReFU",
+      "src": "https://lh3.googleusercontent.com/d/1KPrkRyNDInBegVBWQz6f8wlkhGiWReFU=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1KPrkRyNDInBegVBWQz6f8wlkhGiWReFU=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
+      "id": "1Kg9GRefN-w53DmC7rcczdK-yE6dywpQ3",
+      "src": "https://lh3.googleusercontent.com/d/1Kg9GRefN-w53DmC7rcczdK-yE6dywpQ3=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1Kg9GRefN-w53DmC7rcczdK-yE6dywpQ3=w800",
       "isCover": false,
       "albumId": "portraits"
     },
@@ -626,9 +598,16 @@
       "albumId": "portraits"
     },
     {
-      "id": "1SMq-N45KrefZbvAgm_ojR9a4pS4snv-_",
-      "src": "https://lh3.googleusercontent.com/d/1SMq-N45KrefZbvAgm_ojR9a4pS4snv-_=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1SMq-N45KrefZbvAgm_ojR9a4pS4snv-_=w800",
+      "id": "1SytHRWSAeiEdgiov5NlJTdWaWYYFxDso",
+      "src": "https://lh3.googleusercontent.com/d/1SytHRWSAeiEdgiov5NlJTdWaWYYFxDso=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1SytHRWSAeiEdgiov5NlJTdWaWYYFxDso=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
+      "id": "1Z2xRpmZ2ySbZ7mWShWalXaCuipNGWrDc",
+      "src": "https://lh3.googleusercontent.com/d/1Z2xRpmZ2ySbZ7mWShWalXaCuipNGWrDc=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1Z2xRpmZ2ySbZ7mWShWalXaCuipNGWrDc=w800",
       "isCover": false,
       "albumId": "portraits"
     },
@@ -636,6 +615,13 @@
       "id": "1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH",
       "src": "https://lh3.googleusercontent.com/d/1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1hO3l4Ae8S5Q9n0Zr2Gh75osF5b4HBMhH=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
+      "id": "1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun",
+      "src": "https://lh3.googleusercontent.com/d/1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun=w800",
       "isCover": false,
       "albumId": "portraits"
     },
@@ -654,16 +640,16 @@
       "albumId": "portraits"
     },
     {
+      "id": "1vFMhauRNKjJmStND0PXUiBpNKOXAAgjG",
+      "src": "https://lh3.googleusercontent.com/d/1vFMhauRNKjJmStND0PXUiBpNKOXAAgjG=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1vFMhauRNKjJmStND0PXUiBpNKOXAAgjG=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
       "id": "1-BtF-v7Gkxk4hh-K2vLlQesq5uoC3dA8",
       "src": "https://lh3.googleusercontent.com/d/1-BtF-v7Gkxk4hh-K2vLlQesq5uoC3dA8=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1-BtF-v7Gkxk4hh-K2vLlQesq5uoC3dA8=w800",
-      "isCover": false,
-      "albumId": "theatre-drama"
-    },
-    {
-      "id": "1-_btuQV7_eBAdAZN38oZuKSKieU1eIrg",
-      "src": "https://lh3.googleusercontent.com/d/1-_btuQV7_eBAdAZN38oZuKSKieU1eIrg=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1-_btuQV7_eBAdAZN38oZuKSKieU1eIrg=w800",
       "isCover": false,
       "albumId": "theatre-drama"
     },
@@ -703,23 +689,9 @@
       "albumId": "theatre-drama"
     },
     {
-      "id": "1XHoQJ8f2nd8vOvuV1q78CcFQqgrCSXlc",
-      "src": "https://lh3.googleusercontent.com/d/1XHoQJ8f2nd8vOvuV1q78CcFQqgrCSXlc=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1XHoQJ8f2nd8vOvuV1q78CcFQqgrCSXlc=w800",
-      "isCover": false,
-      "albumId": "theatre-drama"
-    },
-    {
       "id": "1Z7dJ2CW6areakiWOFOTukxopOYbcOC86",
       "src": "https://lh3.googleusercontent.com/d/1Z7dJ2CW6areakiWOFOTukxopOYbcOC86=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1Z7dJ2CW6areakiWOFOTukxopOYbcOC86=w800",
-      "isCover": false,
-      "albumId": "theatre-drama"
-    },
-    {
-      "id": "1_23HiX3LV6E35K-VktibN0HGNgKxg5nu",
-      "src": "https://lh3.googleusercontent.com/d/1_23HiX3LV6E35K-VktibN0HGNgKxg5nu=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1_23HiX3LV6E35K-VktibN0HGNgKxg5nu=w800",
       "isCover": false,
       "albumId": "theatre-drama"
     },
@@ -773,6 +745,6 @@
       "albumId": "theatre-drama"
     }
   ],
-  "lastUpdated": "2026-01-13T06:05:27.154459",
-  "totalPhotos": 104
+  "lastUpdated": "2026-01-14T04:34:40.517849",
+  "totalPhotos": 100
 }
