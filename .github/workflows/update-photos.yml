@@ -44,6 +44,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add src/data/photos.json
           git commit -m "Update photos from Google Drive"
+          git pull --rebase origin main
           git push
 
       - name: Trigger deploy workflow
