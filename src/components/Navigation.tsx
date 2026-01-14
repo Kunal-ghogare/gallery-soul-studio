@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logoDark from '@/assets/logo-dark.png';
+import logoLight from '@/assets/logo-light.png';
+import logoTextDark from '@/assets/logo-text-dark.png';
+import logoTextLight from '@/assets/logo-text-light.png';
 
 const navLinks = [
   { name: 'Work', path: '/portfolio' },
@@ -14,6 +18,7 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,13 +48,39 @@ export function Navigation() {
         <nav className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link 
-              to="/" 
-              className={`font-display text-2xl tracking-tight transition-colors ${
-                isScrolled || !isHome ? 'text-foreground' : 'text-gallery-text'
-              }`}
-            >
-              Kunal Ghogare
+            <Link to="/" className="flex items-center">
+              <div className="relative h-12 w-12">
+                <img
+                  src={logoDark}
+                  alt="KG Logo"
+                  className={`absolute inset-0 h-12 w-auto transition-opacity duration-500 ${
+                    isScrolled || !isHome ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+                <img
+                  src={logoLight}
+                  alt="KG Logo"
+                  className={`absolute inset-0 h-12 w-auto transition-opacity duration-500 ${
+                    isScrolled || !isHome ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+              </div>
+              <div className="relative h-10 hidden sm:block ml-2">
+                <img
+                  src={logoTextDark}
+                  alt="Kunal Ghogare"
+                  className={`h-10 w-auto transition-opacity duration-500 ${
+                    isScrolled || !isHome ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+                <img
+                  src={logoTextLight}
+                  alt="Kunal Ghogare"
+                  className={`absolute inset-0 h-10 w-auto transition-opacity duration-500 ${
+                    isScrolled || !isHome ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+              </div>
             </Link>
 
             {/* Desktop Navigation */}

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Mail } from 'lucide-react';
+import logoDark from '@/assets/logo-dark.png';
+import logoTextDark from '@/assets/logo-text-dark.png';
 
 export function Footer() {
   return (
@@ -8,8 +10,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <Link to="/" className="font-display text-2xl text-foreground">
-              Kunal Ghogare
+            <Link to="/" className="flex items-center gap-3">
+              <img src={logoDark} alt="KG Logo" className="h-12 w-auto" />
+              <img src={logoTextDark} alt="Kunal Ghogare" className="h-10 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground mt-2">
               © {new Date().getFullYear()} All rights reserved.

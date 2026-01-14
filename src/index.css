@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Allura&display=swap');
 
 @layer base {
   :root {
@@ -20,7 +20,7 @@
     --primary: 30 25% 45%;
     --primary-foreground: 40 20% 98%;
 
-    --secondary: 40 15% 97%;
+    --secondary: 38 20% 94%;
     --secondary-foreground: 0 0% 15%;
 
     --muted: 40 10% 90%;
@@ -47,6 +47,7 @@
     /* Typography */
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
+    --font-signature: 'Allura', cursive;
 
     /* Animations */
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
