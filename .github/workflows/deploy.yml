@@ -8,6 +8,14 @@ on:
   # Allow manual trigger
   workflow_dispatch:
 
+  # Run after update-photos workflow completes
+  workflow_run:
+    workflows: ["Update Photos from Google Drive"]
+    types:
+      - completed
+    branches:
+      - main
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
