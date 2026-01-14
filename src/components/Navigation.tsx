@@ -48,35 +48,35 @@ export function Navigation() {
         <nav className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <div className="relative h-12 w-12">
+            <Link to="/" className="flex items-center ">
+              <div className="relative h-8 w-8">
                 <img
                   src={logoDark}
                   alt="KG Logo"
-                  className={`absolute inset-0 h-12 w-auto transition-opacity duration-500 ${
+                  className={`absolute inset-0 h-8 w-auto transition-opacity duration-500 ${
                     isScrolled || !isHome ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
                 <img
                   src={logoLight}
                   alt="KG Logo"
-                  className={`absolute inset-0 h-12 w-auto transition-opacity duration-500 ${
+                  className={`absolute inset-0 h-8 w-auto transition-opacity duration-500 ${
                     isScrolled || !isHome ? 'opacity-0' : 'opacity-100'
                   }`}
                 />
               </div>
-              <div className="relative h-10 hidden sm:block ml-2">
+              <div className="relative h-8 hidden sm:block">
                 <img
                   src={logoTextDark}
                   alt="Kunal Ghogare"
-                  className={`h-10 w-auto transition-opacity duration-500 ${
+                  className={`h-8 w-auto transition-opacity duration-500 ${
                     isScrolled || !isHome ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
                 <img
                   src={logoTextLight}
                   alt="Kunal Ghogare"
-                  className={`absolute inset-0 h-10 w-auto transition-opacity duration-500 ${
+                  className={`absolute inset-0 h-8 w-auto transition-opacity duration-500 ${
                     isScrolled || !isHome ? 'opacity-0' : 'opacity-100'
                   }`}
                 />

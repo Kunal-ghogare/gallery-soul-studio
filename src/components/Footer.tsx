@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center">
               <img src={logoDark} alt="KG Logo" className="h-12 w-auto" />
               <img src={logoTextDark} alt="Kunal Ghogare" className="h-10 w-auto" />
             </Link>
