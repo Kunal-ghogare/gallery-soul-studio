@@ -40,7 +40,7 @@
       "title": "Theatre Drama ",
       "folderId": "1oftaXUZj3VSZtDAPTigcCZ7c5nbgGeTa",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1-BtF-v7Gkxk4hh-K2vLlQesq5uoC3dA8=w800",
-      "photoCount": 14
+      "photoCount": 13
     }
   ],
   "photos": [
@@ -717,13 +717,6 @@
       "albumId": "theatre-drama"
     },
     {
-      "id": "1h9FMOAvpQ1xbzisbe68OaU-px-4XRnPe",
-      "src": "https://lh3.googleusercontent.com/d/1h9FMOAvpQ1xbzisbe68OaU-px-4XRnPe=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1h9FMOAvpQ1xbzisbe68OaU-px-4XRnPe=w800",
-      "isCover": false,
-      "albumId": "theatre-drama"
-    },
-    {
       "id": "1otvjBhwthKPcUS1TNIR20_aVCGN4yNtP",
       "src": "https://lh3.googleusercontent.com/d/1otvjBhwthKPcUS1TNIR20_aVCGN4yNtP=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1otvjBhwthKPcUS1TNIR20_aVCGN4yNtP=w800",
@@ -745,6 +738,6 @@
       "albumId": "theatre-drama"
     }
   ],
-  "lastUpdated": "2026-01-14T08:55:34.961442",
-  "totalPhotos": 100
+  "lastUpdated": "2026-01-15T01:36:44.403031",
+  "totalPhotos": 99
 }
