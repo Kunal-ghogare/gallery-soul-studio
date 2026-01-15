@@ -33,7 +33,7 @@
       "title": "Portraits",
       "folderId": "1jSQexFwkU66rElPzFoJ2QzZ21VBBNWIz",
       "coverPhoto": "https://lh3.googleusercontent.com/d/1h2UTGW9UR4GBT9nckj8HJwr4Fsg8yhhW=w800",
-      "photoCount": 15
+      "photoCount": 16
     },
     {
       "id": "theatre-drama",
@@ -556,6 +556,13 @@
       "albumId": "portraits"
     },
     {
+      "id": "16mu-ar3yK0d7a7gaZkmMsScBSbRUO9GH",
+      "src": "https://lh3.googleusercontent.com/d/16mu-ar3yK0d7a7gaZkmMsScBSbRUO9GH=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/16mu-ar3yK0d7a7gaZkmMsScBSbRUO9GH=w800",
+      "isCover": false,
+      "albumId": "portraits"
+    },
+    {
       "id": "1DqjQQN-P3lCTz8FEHVTetWaJa6s6l3Va",
       "src": "https://lh3.googleusercontent.com/d/1DqjQQN-P3lCTz8FEHVTetWaJa6s6l3Va=w800",
       "thumbSrc": "https://lh3.googleusercontent.com/d/1DqjQQN-P3lCTz8FEHVTetWaJa6s6l3Va=w800",
@@ -619,9 +626,9 @@
       "albumId": "portraits"
     },
     {
-      "id": "1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun",
-      "src": "https://lh3.googleusercontent.com/d/1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun=w800",
-      "thumbSrc": "https://lh3.googleusercontent.com/d/1jonSNqYfiJOFTiyu2hUSV_vwCYRWDSun=w800",
+      "id": "1jpPLEzNNTaaXPWjheRZXu2B7tOZaM1Zs",
+      "src": "https://lh3.googleusercontent.com/d/1jpPLEzNNTaaXPWjheRZXu2B7tOZaM1Zs=w800",
+      "thumbSrc": "https://lh3.googleusercontent.com/d/1jpPLEzNNTaaXPWjheRZXu2B7tOZaM1Zs=w800",
       "isCover": false,
       "albumId": "portraits"
     },
@@ -738,6 +745,6 @@
       "albumId": "theatre-drama"
     }
   ],
-  "lastUpdated": "2026-01-15T01:36:44.403031",
-  "totalPhotos": 99
+  "lastUpdated": "2026-01-15T02:01:31.511021",
+  "totalPhotos": 100
 }
